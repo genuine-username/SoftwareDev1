@@ -1,4 +1,4 @@
-public class CountingLoop {
+public class CountingLoopWeek2 {
     public static void main(String[] args) {
         String numberType = "";
         for (int i = 1; i <= 100; i++) {
