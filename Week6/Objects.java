@@ -9,11 +9,13 @@ import java.util.ArrayList;
 
 public class Objects {
     public static void main(String[] args) {
+        // Create an arrayList of horses
         ArrayList<Horse> horses = new ArrayList<Horse>();
         horses.add(new Horse("Hasufel", 1954));
         horses.add(new Horse("Bill", 1954));
         horses.add(new Horse("Snowmane", 1955));
 
+        // Print their names and years of birth
         System.out.println("\nHere are my horses:");
         for (Horse horse : horses) {
             System.out.println("Name: " + horse.name + " Born: " + String.valueOf(horse.birthYear));
