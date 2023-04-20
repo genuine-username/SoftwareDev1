@@ -1,7 +1,8 @@
-package Week5;
 // Jackson Allaway jackson.allaway@oneidaihla.org
 // for CTE software development 1
-//instructor Mr Gross
+// instructor Mr Gross
+
+package Week5;
 
 public class BubbleSort {
     public static void main(String[] args) {

@@ -1,3 +1,7 @@
+// Jackson Allaway jackson.allaway@oneidaihla.org
+// for CTE software development 1
+// instructor Mr Gross
+
 package Week6;
 
 //import Week6.Horse;
