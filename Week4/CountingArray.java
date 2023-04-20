@@ -1,4 +1,5 @@
-public class CountingArrayWeek3 {
+package Week4;
+public class CountingArray {
     public static void main(String[] args) {
         // Create an array of length 100 and fill it with the numbers 1-100
         int[] numbers = new int[100];

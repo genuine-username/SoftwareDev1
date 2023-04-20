@@ -1,4 +1,5 @@
-public class HelloWorldWeek1 {
+package Week2;
+public class HelloWorld {
     public static void main(String[] args) {
         // My information
         String name = "Jackson";

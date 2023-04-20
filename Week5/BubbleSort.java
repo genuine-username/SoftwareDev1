@@ -1,8 +1,9 @@
+package Week5;
 // Jackson Allaway jackson.allaway@oneidaihla.org
 // for CTE software development 1
 //instructor Mr Gross
 
-public class BubbleSortWeek4 {
+public class BubbleSort {
     public static void main(String[] args) {
         // Create an array of unsorted ints and then sort them
         int[] numbers = {1, 3, 98, 2, 64};
