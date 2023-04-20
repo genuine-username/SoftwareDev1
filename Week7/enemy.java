@@ -24,6 +24,11 @@ public class enemy {
         this.y = y;
     }
 
+    /**
+     * Performs an attack on the player
+     * @param playerArmor
+     * @return the final damage output
+     */
     public float performAttack(float playerArmor) {
         return damage / playerArmor;
     }
