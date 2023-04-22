@@ -9,11 +9,10 @@ import java.util.ArrayList;
 public class Objects {
     public static void main(String[] args) {
         ArrayList<Enemy> enemies = new ArrayList<Enemy>();
-        
+
         enemies.add(new Enemy("Basic", 10f, 5f));
         enemies.add(new InconsistentEnemy("Inconsistent", 20f, 3f));
         enemies.add(new CompoundingEnemy("Compounding", 15f, 5f));
-
 
         // The "player"'s stats
         float playerHealth = 64f;
@@ -193,5 +192,5 @@ class CompoundingEnemy extends Enemy {
         System.out.println("Enemy " + name + " dealt " + String.valueOf(totalDamage) + " damage");
         return totalDamage;
     }
-    
+
 }

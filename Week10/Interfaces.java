@@ -2,69 +2,36 @@
 // for CTE software development 1
 // instructor Mr Gross
 
-package Week8;
+package Week10;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
-public class Objects {
+public class Interfaces {
     public static void main(String[] args) {
+        // Create an ArrayList of enemies with names, 1-10, and a random amount of damage.
         ArrayList<Enemy> enemies = new ArrayList<Enemy>();
-        for (int i = 1; i <= 3; i++) {
-            enemies.add(new Enemy(String.valueOf(i), 10f, 5f));
+        for (int i = 0; i < 10; i++) {
+            enemies.add(new Enemy(String.valueOf(i), 1, (float) Math.random()));
         }
 
-        // The "player"'s stats
-        float playerHealth = 31f;
-        float playerDamage = 5;
-        float playerArmor = 1;
+        // Print out the unsorted ArrayList
+        System.out.println("\nUnsorted enemies: ");
+        for (Enemy enemy : enemies) {
+            System.out.println("Enemy: " + enemy.name + " deals " + enemy.damage + " damage");
+        }
 
-        // The main loop for the "game"
-        int i = 1;
-        while (true) {
-            // Display the turn number
-            System.out.println("\nTurn: " + String.valueOf(i));
+        Collections.sort(enemies);
 
-            // Do enemy attacks
-            System.out.println("\nEnemies attack: ");
-            for (Enemy enemy : enemies) {
-                playerHealth -= enemy.performAttack(playerArmor);
-            }
-
-            // If the player is dead, then give the game over message and quit otherwise
-            // print health
-            if (playerHealth <= 0) {
-                System.out.println("\nThe player has been defeated! Game Over!\n");
-                break;
-            } else {
-                System.out.println("\nPlayer is at " + String.valueOf(playerHealth) + " health");
-            }
-
-            // Perform the player's attacks
-            System.out.println("\nPlayer attacks for " + String.valueOf(playerDamage) + " damage each:");
-            for (Enemy enemy : enemies) {
-                enemy.takeDamage(playerDamage);
-            }
-
-            // Check if the enemies are dead
-            boolean stillAlive = false;
-            for (Enemy enemy : enemies) {
-                if (enemy.alive) {
-                    stillAlive = true;
-                    break;
-                }
-            }
-
-            if (!stillAlive) {
-                System.out.println("\nVictory!!!!!\n");
-                break;
-            }
-
-            i++;
+        // Print out the sorted ArrayList
+        System.out.println("\nSorted enemies: ");
+        for (Enemy enemy : enemies) {
+            System.out.println("Enemy: " + enemy.name + " deals " + enemy.damage + " damage");
         }
     }
 }
 
-class Enemy {
+class Enemy implements Comparable<Enemy> {
     String name;
 
     float health;
@@ -92,7 +59,7 @@ class Enemy {
     /**
      * Performs an attack on the player and print the result
      * 
-     * @param playerArmor
+     * @param playerArmor The amount of armor the player has
      * @return the final damage output
      */
     public float performAttack(float playerArmor) {
@@ -104,7 +71,7 @@ class Enemy {
     /**
      * Deal damage to the enemy and print the result
      * 
-     * @param damage
+     * @param damage The amount of damage to recieve
      * @return if the enemy is dead
      */
     public void takeDamage(float damage) {
@@ -121,5 +88,23 @@ class Enemy {
             System.out.println("Enemy " + name + " is now at " + String.valueOf(health) + " health");
         }
 
+    }
+
+    /**
+     * Compare to other enemies from greatest to smallest based on how much damage
+     * they do
+     * 
+     * @param enemy
+     * @return
+     */
+    @Override
+    public int compareTo(Enemy enemy) {
+        if (enemy.damage > damage) { // The enemy is greater if it does more damage
+            return 1;
+        } else if (enemy.damage < damage) { // The enemy is less if it does less
+            return -1;
+        } else { // Otherwise consider it equal
+            return 0;
+        }
     }
 }
